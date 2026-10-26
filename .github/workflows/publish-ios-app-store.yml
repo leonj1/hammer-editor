@@ -17,7 +17,7 @@ on:
 
 jobs:
   publish-ios-app-store:
-    runs-on: macos-latest
+    runs-on: [self-hosted, macOS, ARM64]
     # Backstop against a hung publish holding an expensive macOS runner for the
     # 6h default. A healthy release fits well within this; the fastlane build
     # processing wait is bounded tighter still.

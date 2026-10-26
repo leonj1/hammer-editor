@@ -7,7 +7,7 @@ on:
 
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
@@ -43,7 +43,7 @@ jobs:
 
   windows:
     needs: tests
-    runs-on: windows-latest
+    runs-on: [self-hosted, windows, x64]
     permissions:
       contents: write
     steps:
@@ -142,7 +142,7 @@ jobs:
 
   linux:
     needs: tests
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     permissions:
       contents: write
     steps:
@@ -253,7 +253,7 @@ jobs:
 
   macos:
     needs: tests
-    runs-on: macos-latest
+    runs-on: [self-hosted, macOS, ARM64]
     permissions:
       contents: write
     steps:
@@ -338,7 +338,7 @@ jobs:
 
   server:
     needs: tests
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     permissions:
       contents: write
     steps:
@@ -400,7 +400,7 @@ jobs:
 
   android:
     needs: tests
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     permissions:
       contents: write
     steps:
@@ -475,7 +475,7 @@ jobs:
 
   snap:
     needs: tests
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     permissions:
       contents: write
     steps:
@@ -513,7 +513,7 @@ jobs:
 
   flatpak:
     needs: tests
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     permissions:
       contents: write
     steps:
@@ -573,7 +573,7 @@ jobs:
           artifacts: "${{ github.workspace }}/desktop/build/installers/main-release/flatpak/hammer.flatpak"
 
   set-release-body:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     needs: [ windows, linux, macos, android, server, snap, flatpak ]
     if: success()
     permissions:

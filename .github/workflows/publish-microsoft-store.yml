@@ -14,7 +14,7 @@ on:
 
 jobs:
   publish-microsoft-store:
-    runs-on: windows-latest
+    runs-on: [self-hosted, windows, x64]
     steps:
       - name: Checkout code
         uses: actions/checkout@v7

@@ -37,7 +37,7 @@ jobs:
     # job there, but it is precisely when self-hosters need a new image, so it
     # publishes here; client-store-only releases must not move the server tags.
     if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.release.tag_name, '+') || contains(github.event.release.tag_name, '+server') }}
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     steps:
       - name: Checkout code
         uses: actions/checkout@v7

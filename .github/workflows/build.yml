@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     steps:
       - uses: actions/checkout@v7
@@ -70,7 +70,7 @@ jobs:
             integrationTests/build/test-results/jvmTest/
 
   static-analysis:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     steps:
       - uses: actions/checkout@v7
       - name: Set up Python
@@ -107,7 +107,7 @@ jobs:
           echo "gitleaks: no leaks"
 
   android-instrumented-tests:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     steps:
       - uses: actions/checkout@v7
       - name: set up JDK 21
@@ -178,7 +178,7 @@ jobs:
   # and runs the Kotlin/Native unit tests on the simulator.
   ios-compile:
     name: iOS compile & test
-    runs-on: macos-latest
+    runs-on: [self-hosted, macOS, ARM64]
     steps:
       - uses: actions/checkout@v7
       - name: Select Xcode 26
@@ -220,7 +220,7 @@ jobs:
   # --uitesting (see composeUi .../MainViewController.kt and ios/iosUITests).
   ios-ui-tests:
     name: iOS UI tests
-    runs-on: macos-latest
+    runs-on: [self-hosted, macOS, ARM64]
     steps:
       - uses: actions/checkout@v7
       - name: Select Xcode 26

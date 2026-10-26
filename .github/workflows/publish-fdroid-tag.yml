@@ -14,7 +14,7 @@ on:
 
 jobs:
   publish-fdroid-tag:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     permissions:
       contents: write
     steps:
